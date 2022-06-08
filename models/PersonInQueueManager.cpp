@@ -6,19 +6,19 @@
 using namespace std;
 
 
-vector<PersonInQueue*> PersonInQueueManager::getList() {
+vector<PersonInQueue*> PersonInQueueManager::getList() const {
     // TODO: implement
 }
 
-PersonInQueue* PersonInQueueManager::get() {
+PersonInQueue* PersonInQueueManager::get() const {
     // TODO: implement
 }
 
-vector<PersonInQueue*> PersonInQueueManager::filter() {
+vector<PersonInQueue*> PersonInQueueManager::filter() const {
     // TODO: implement
 }
 
-PersonInQueue* PersonInQueueManager::save(PersonInQueue* model) {
+PersonInQueue* PersonInQueueManager::save(const PersonInQueue* model) const {
     // TODO: implement
 }
 

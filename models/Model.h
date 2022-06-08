@@ -10,8 +10,8 @@ class Model {
 public:
     int pk;
     const string tableName;
-    ModelManager<Model>* manager;
-    Model* save(Model* model) {
+    const ModelManager<Model>* manager;
+    Model* save() const {
         return manager->save(this);
     }
 };

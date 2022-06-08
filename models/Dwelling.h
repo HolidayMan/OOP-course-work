@@ -6,8 +6,8 @@
 class DwellingManager;
 
 class Dwelling: Model {
+    Dwelling(string _address, int _rooms);
     DwellingManager* manager;
-    string type;
     string address;
     int rooms;
 };

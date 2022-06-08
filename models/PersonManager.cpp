@@ -4,18 +4,18 @@
 
 using namespace std;
 
-vector<Person*> PersonManager::getList() {
+vector<Person*> PersonManager::getList() const {
 // TODO: implement
 }
 
-Person* PersonManager::get() {
+Person* PersonManager::get() const {
     // TODO: implement
 }
 
-vector<Person*> PersonManager::filter() {
+vector<Person*> PersonManager::filter() const {
     // TODO: implement
 }
 
-Person* PersonManager::save(Person* model) {
+Person* PersonManager::save(const Person* model) const {
     // TODO: implement
 }

@@ -12,9 +12,9 @@ class PersonInQueue;
 
 class PersonInQueueManager: public ModelManager<PersonInQueue> {
 public:
-    vector<PersonInQueue*> getList() override;
-    PersonInQueue* get() override;
-    vector<PersonInQueue*> filter() override;
-    PersonInQueue* save(PersonInQueue* model)  override;
+    vector<PersonInQueue*> getList() const override;
+    PersonInQueue* get() const override;
+    vector<PersonInQueue*> filter() const override;
+    PersonInQueue* save(const PersonInQueue* model) const override;
 };
 

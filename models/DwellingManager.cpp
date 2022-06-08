@@ -8,19 +8,19 @@
 using namespace std;
 
 
-vector<Dwelling*> DwellingManager::getList() {
+vector<Dwelling*> DwellingManager::getList() const {
     // TODO: implement
 }
 
-Dwelling* DwellingManager::get() {
+Dwelling* DwellingManager::get() const {
     // TODO: implement
 }
 
-vector<Dwelling*> DwellingManager::filter() {
+vector<Dwelling*> DwellingManager::filter() const {
     // TODO: implement
 }
 
-Dwelling* DwellingManager::save(Dwelling* model) {
+Dwelling* DwellingManager::save(const Dwelling* model) const {
     // TODO: implement
 }
 

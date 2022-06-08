@@ -10,8 +10,8 @@ class Person;
 
 class PersonManager: public ModelManager<Person> {
 public:
-    vector<Person*> getList() override;
-    Person* get() override;
-    vector<Person*> filter() override;
-    Person* save(Person* model) override;
+    vector<Person*> getList() const override;
+    Person* get() const override;
+    vector<Person*> filter() const override;
+    Person* save(const Person* model) const override;
 };

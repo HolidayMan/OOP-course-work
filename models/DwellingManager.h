@@ -12,9 +12,9 @@ class Dwelling;
 
 class DwellingManager: public ModelManager<Dwelling> {
 public:
-    vector<Dwelling*> getList() override;
-    Dwelling* get() override;
-    vector<Dwelling*> filter() override;
-    Dwelling* save(Dwelling* model)  override;
+    vector<Dwelling*> getList() const override;
+    Dwelling* get() const override;
+    vector<Dwelling*> filter() const override;
+    Dwelling* save(const Dwelling* model)  const override;
 };
 

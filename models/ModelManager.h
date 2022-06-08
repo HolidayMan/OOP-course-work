@@ -6,8 +6,8 @@ using namespace std;
 template<class T>
 class ModelManager {
 public:
-    virtual vector<T*> getList() = 0;
-    virtual T* get() = 0;
-    virtual vector<T*> filter() = 0;
-    virtual T* save(T* model) = 0;
+    virtual vector<T*> getList() const = 0;
+    virtual T* get() const = 0;
+    virtual vector<T*> filter() const = 0;
+    virtual T* save(const T* model) const = 0;
 };

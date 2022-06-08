@@ -8,8 +8,13 @@
 class PersonManager;
 
 class Person: public Model {
+public:
+    Person(string _name, Date* _birthDate, string _sex, string family);
     const string tableName = "person";
-    PersonManager* manager;
-    Date date_of_birth;
+    string name;
+    const PersonManager* manager;
+    Date* birthDate;
+    string sex;
+    string family;
 };
 
