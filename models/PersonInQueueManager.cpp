@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include "ModelManager.h"
 #include "PersonInQueue.h"
 #include "PersonInQueueManager.h"
 
