@@ -4,4 +4,7 @@ project(OOP_course_work)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(OOP_course_work
-        main.cpp models/Model.h models/ModelManager.h models/fields/Date.cpp models/Person.cpp models/PersonManager.cpp models/PersonInQueue.cpp models/PersonInQueueManager.cpp models/fields/Field.h utils.cpp models/Person.h models/PersonManager.h models/fields/Date.h models/PersonInQueue.h models/PersonInQueueManager.h models/Dwelling.cpp models/Dwelling.h models/DwellingManager.cpp models/DwellingManager.h)
+        main.cpp models/Model.h models/ModelManager.h models/fields/Date.cpp models/Person.cpp models/PersonManager.cpp models/PersonInQueue.cpp models/PersonInQueueManager.cpp models/fields/Field.h utils.cpp models/Person.h models/PersonManager.h models/fields/Date.h models/PersonInQueue.h models/PersonInQueueManager.h models/Dwelling.cpp models/Dwelling.h models/DwellingManager.cpp models/DwellingManager.h DBWorker.cpp DBWorker.h Constants.h Exceptions.cpp Exceptions.h Tests.cpp Tests.h)
+include_directories(/usr/include)
+link_directories(/usr/lib)
+target_link_libraries(OOP_course_work sqlite3)

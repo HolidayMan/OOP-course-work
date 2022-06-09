@@ -7,7 +7,7 @@ class DwellingManager;
 
 class Dwelling: Model {
     Dwelling(string _address, int _rooms);
-    DwellingManager* manager;
+    const DwellingManager* manager;
     string address;
     int rooms;
 };
