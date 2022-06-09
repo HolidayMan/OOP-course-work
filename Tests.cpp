@@ -1,11 +1,13 @@
 #include <iostream>
 #include "DBWorker.h"
 #include "Exceptions.h"
+#include "models/DwellingManager.h"
 
 using namespace std;
 
 
 int testDBWorker() {
+    cout << "Test DBWorker" << endl;
     string sql = "SELECT * from person;";
     DBWorker *worker = DBWorker::getInstance();
     auto result = worker->execute(sql);
@@ -50,13 +52,25 @@ int testDBWorker() {
     vector<vector<string> >().swap(result);
 
 
-    delete worker;
+    cout << "\n\n\n\n";
 
+    return 0;
+}
+
+int testDwellingManager() {
+    cout << "Test DwellingManager" << "\n\n";
+
+    cout << "getList()" << endl;
+    for (auto dwelling: DwellingManager().getList()) {
+        cout << dwelling->pk << " " << dwelling->address << " " << dwelling->rooms << endl;
+    }
+    cout << endl;
     return 0;
 }
 
 
 int runTests() {
     testDBWorker();
+    testDwellingManager();
     return 0;
 }

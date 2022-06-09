@@ -5,7 +5,9 @@
 
 class DwellingManager;
 
-class Dwelling: Model {
+class Dwelling: public Model {
+public:
+    const string tableName = "dwelling";
     Dwelling(string _address, int _rooms);
     const DwellingManager* manager;
     string address;
