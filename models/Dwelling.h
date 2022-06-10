@@ -12,4 +12,6 @@ public:
     const DwellingManager* manager;
     string address;
     int rooms;
+    Dwelling* save() const override;
+    int remove() const override;
 };

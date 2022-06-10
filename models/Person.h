@@ -16,5 +16,6 @@ public:
     Date* birthDate;
     string sex;
     string family;
+    Person* save() const override;
 };
 

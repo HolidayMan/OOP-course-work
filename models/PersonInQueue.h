@@ -17,4 +17,5 @@ public:
     Person* person;
     bool isSatisfied;
     Dwelling* dwelling;
+    PersonInQueue* save() const override;
 };

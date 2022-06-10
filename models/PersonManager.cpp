@@ -8,7 +8,7 @@ vector<Person*> PersonManager::getList() const {
 // TODO: implement
 }
 
-Person* PersonManager::get() const {
+Person* PersonManager::get(int pk) const {
     // TODO: implement
 }
 
@@ -18,4 +18,9 @@ vector<Person*> PersonManager::filter() const {
 
 Person* PersonManager::save(const Person* model) const {
     // TODO: implement
+}
+
+int PersonManager::remove(const Person *model) const {
+    // TODO: implement
+    return 0;
 }

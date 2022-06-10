@@ -11,7 +11,8 @@ class Person;
 class PersonManager: public ModelManager<Person> {
 public:
     vector<Person*> getList() const override;
-    Person* get() const override;
+    Person* get(int pk) const override;
     vector<Person*> filter() const override;
     Person* save(const Person* model) const override;
+    int remove(const Person* model) const override;
 };

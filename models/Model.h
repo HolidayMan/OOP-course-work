@@ -11,7 +11,6 @@ public:
     int pk;
     const string tableName;
     const ModelManager<Model>* manager;
-    Model* save() const {
-        return manager->save(this);
-    }
+    virtual Model* save() const = 0;
+    virtual int remove() const = 0;
 };

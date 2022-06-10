@@ -10,7 +10,7 @@ vector<PersonInQueue*> PersonInQueueManager::getList() const {
     // TODO: implement
 }
 
-PersonInQueue* PersonInQueueManager::get() const {
+PersonInQueue* PersonInQueueManager::get(int pk) const {
     // TODO: implement
 }
 
@@ -20,5 +20,10 @@ vector<PersonInQueue*> PersonInQueueManager::filter() const {
 
 PersonInQueue* PersonInQueueManager::save(const PersonInQueue* model) const {
     // TODO: implement
+}
+
+int PersonInQueueManager::remove(const PersonInQueue *model) const {
+    // TODO: imlement
+    return 0;
 }
 
