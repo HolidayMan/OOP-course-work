@@ -8,3 +8,10 @@ add_executable(OOP_course_work
 include_directories(/usr/include)
 link_directories(/usr/lib)
 target_link_libraries(OOP_course_work sqlite3)
+
+set(Boost_USE_STATIC_LIBS OFF)
+set(Boost_USE_MULTITHREADED ON)
+set(Boost_USE_STATIC_RUNTIME OFF)
+find_package(Boost 1.45.0 COMPONENTS)
+target_link_libraries(OOP_course_work Boost::boost)
+

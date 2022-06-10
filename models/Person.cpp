@@ -12,3 +12,8 @@ Person::Person(string _name, Date* _birthDate, string _sex, string _family)
 Person *Person::save() const {
     manager->save(this);
 }
+
+int Person::remove() const {
+    manager->remove(this);
+    return 0;
+}

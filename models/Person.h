@@ -17,5 +17,6 @@ public:
     string sex;
     string family;
     Person* save() const override;
+    int remove() const override;
 };
 

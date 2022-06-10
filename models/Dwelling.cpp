@@ -13,4 +13,5 @@ Dwelling *Dwelling::save() const {
 
 int Dwelling::remove() const {
     manager->remove(this);
+    return 0;
 }
