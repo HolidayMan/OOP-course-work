@@ -12,3 +12,7 @@ PersonInQueue::PersonInQueue(Date* _dateAdded, Person* _person, bool _isSatisfie
 PersonInQueue *PersonInQueue::save() const {
     return manager->save(this);
 }
+
+int PersonInQueue::remove() const {
+    return manager->remove(this);
+}

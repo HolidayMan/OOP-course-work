@@ -9,7 +9,7 @@ using namespace std;
 
 // TODO: make family optional
 Person* initPersonWithPk(int pk, string _name, Date* _birthDate, string _sex, string _family) {
-    auto* person = new Person(std::move(_name), _birthDate, std::move(_sex), _family);
+    auto* person = new Person(std::move(_name), _birthDate, std::move(_sex), std::move(_family));
     person->pk = pk;
     return person;
 }

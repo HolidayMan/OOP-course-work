@@ -7,10 +7,10 @@
 #include "Person.h"
 #include "Dwelling.h"
 
-
+class PersonInQueueManager;
 class PersonInQueue: public Model {
 public:
-    PersonInQueue(Date* _dateAdded, Person* _person, bool _isSatisfied, Dwelling* _dwelling);
+    PersonInQueue(Date* _dateAdded, Person* _person, bool _isSatisfied, Dwelling* _dwelling=nullptr);
     const string tableName = "person_in_queue";
     const PersonInQueueManager* manager;
     Date* dateAdded;
@@ -18,4 +18,5 @@ public:
     bool isSatisfied;
     Dwelling* dwelling;
     PersonInQueue* save() const override;
+    int remove() const override;
 };

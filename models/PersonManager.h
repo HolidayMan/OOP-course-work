@@ -3,6 +3,7 @@
 #include <vector>
 #include "ModelManager.h"
 #include "Person.h"
+#include "fields/Date.h"
 
 using namespace std;
 
@@ -16,3 +17,5 @@ public:
     Person* save(const Person* model) const override;
     int remove(const Person* model) const override;
 };
+
+Person* initPersonWithPk(int pk, string _name, Date* _birthDate, string _sex, string _family);

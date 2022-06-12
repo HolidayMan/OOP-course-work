@@ -19,3 +19,4 @@ public:
     int remove(const Dwelling* model) const override;
 };
 
+Dwelling* initDwellingWithPk(int pk, string address, int rooms);
