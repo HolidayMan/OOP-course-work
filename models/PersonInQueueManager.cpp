@@ -7,6 +7,7 @@
 #include "Person.h"
 #include "fields/Date.h"
 #include <boost/format.hpp>
+#include <cstring>
 #include "../Exceptions.h"
 
 using namespace std;
@@ -67,7 +68,7 @@ PersonInQueue* PersonInQueueManager::save(const PersonInQueue* model) const {
     query = (boost::format(query) % model->person->pk % model->dateAdded->toRepresentation() % model->isSatisfied % model->dwelling->pk).str();
     bool create = true;
     if (model->pk != 0) {
-        query = "UPDATE person_in_queue SET added_date='%s', is_satisfied='%d', dwelling='%d', WHERE person_id=%d;";
+        query = "UPDATE person_in_queue SET added_date='%s', is_satisfied='%d', dwelling='%d' WHERE person_id=%d;";
         query = (boost::format(query) % model->dateAdded->toRepresentation() % model->isSatisfied % model->dwelling->pk % model->pk).str();
         create = false;
     }

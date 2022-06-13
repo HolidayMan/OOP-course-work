@@ -8,7 +8,7 @@ using namespace std;
 
 class Model {
 public:
-    int pk;
+    int pk = 0;
     const string tableName;
     const ModelManager<Model>* manager;
     virtual Model* save() const = 0;

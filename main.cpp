@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 #include "Tests.h"
 #include "Exceptions.h"
 
