@@ -16,6 +16,10 @@ Dwelling *DwellingController::remove() {
     return nullptr;
 }
 
-View<Dwelling> *DwellingController::getView() {
+View *DwellingController::getView() {
     return nullptr;
 }
+
+//View<Dwelling> *DwellingController::getView() {
+//    return nullptr;
+//}

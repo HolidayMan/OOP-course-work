@@ -1,11 +1,12 @@
 #pragma once
 #include "CRUD.h"
+#include "Controller.h"
 #include "../models/Dwelling.h"
 #include "../models/DwellingManager.h"
 
 
-class DwellingController : CRUD<Dwelling>{
-    View<Dwelling>* getView() override;
+class DwellingController : public CRUD<Dwelling>, public Controller {
+    View* getView() override;
     Dwelling* create() override;
     Dwelling* read() override;
     Dwelling* update() override;

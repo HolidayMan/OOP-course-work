@@ -3,13 +3,9 @@
 #include "../models/Model.h"
 
 
-class MainView: public View<View<Model>> {
+class MainView: public View {
+public:
+    explicit MainView(string _header) : View(std::move(_header)) {}
     string getScreenData() override;
 };
 
-
-/*
- * 1. Manage people
- * 2. Manage dwellings
- * 3. Manage queue
-*/
