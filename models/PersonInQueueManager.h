@@ -4,6 +4,7 @@
 #include <vector>
 #include "ModelManager.h"
 #include "PersonInQueue.h"
+#include "Filter.h"
 
 using namespace std;
 
@@ -17,5 +18,8 @@ public:
     vector<PersonInQueue*> filter() const override;
     PersonInQueue* save(const PersonInQueue* model) const override;
     int remove(const PersonInQueue* model) const override;
+
+
+    void filterTest(Filter* condition) const;
 };
 

@@ -109,10 +109,26 @@ int testPersonInQueueManager() {
     return 0;
 }
 
+int filterTest() {
+    PersonInQueueManager personInQueueManager;
+
+    personInQueueManager.filterTest(new ANDFilter(vector<std::shared_ptr<Filter>>{
+        make_shared<BetweenFilter>("Age", 3, 5),
+        make_shared<CompareFilter>("Price", "40", "< "),
+        make_shared<CompareFilter>("Price", "10", ">"),
+        make_shared<IsNotNullFilter>("name"),
+        make_shared<NOTFilter>("temperature", make_shared<BetweenFilter>("", 10, 30)),
+        make_shared<NotLikeFilter>("House", "o%"),
+        make_shared<NotInFilter>("City", "('Kharkiv', 'Lviv', 'Kyiv')")
+    }));
+
+    return 0;
+}
 
 int runTests() {
     testDBWorker();
     testDwellingManager();
     testPersonInQueueManager();
+    filterTest();
     return 0;
 }
