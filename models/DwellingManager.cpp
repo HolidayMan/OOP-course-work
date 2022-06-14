@@ -34,7 +34,7 @@ Dwelling* DwellingManager::get(int pk) const {
 
 }
 
-vector<Dwelling*> DwellingManager::filter() const {
+vector<Dwelling*> DwellingManager::filter(Filter* condition) const {
     // TODO: implement
 }
 

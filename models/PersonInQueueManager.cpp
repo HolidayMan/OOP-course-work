@@ -8,7 +8,9 @@
 #include "fields/Date.h"
 #include <boost/format.hpp>
 #include <cstring>
+#include <sstream>
 #include "../Exceptions.h"
+#include "Filter.h"
 
 using namespace std;
 
@@ -59,8 +61,19 @@ PersonInQueue* PersonInQueueManager::get(int pk) const {
     return initPersonInQueueWithPk(id, new Date(result[1]), person, stoi(result[3]), dwelling);
 }
 
-vector<PersonInQueue*> PersonInQueueManager::filter() const {
-    // TODO: implement
+vector<PersonInQueue *> PersonInQueueManager::filter(Filter* condition) const {
+    std::stringstream ss;
+    ss << "SELECT * FROM person_in_queue WHERE " << condition->getRepresentation("");
+
+    DBWorker* worker = DBWorker::getInstance();
+    auto result = worker->execute(ss.str());
+    vector<PersonInQueue*> peopleInQueue;
+    for (auto row: result) {
+        int id = stoi(row[0]);
+        peopleInQueue.push_back(get(id));
+    }
+
+    return peopleInQueue;
 }
 
 PersonInQueue* PersonInQueueManager::save(const PersonInQueue* model) const {
@@ -94,4 +107,6 @@ int PersonInQueueManager::remove(const PersonInQueue *model) const {
     worker->execute(query);
     return 0;
 }
+
+
 
