@@ -1,15 +1,13 @@
-#include "MainView.h"
-#include <ios>
-#include <iomanip>
 #include <sstream>
-#include "boost/format.hpp"
+#include <iomanip>
+#include <ios>
+#include "ManageDwellingsView.h"
 #include "../utils.h"
 
-
-string MainView::getScreenData() {
+string ManageDwellingsView::getScreenData() {
     std::stringstream sstream;
     auto w = getWinsize();
-    int listSize = 4;
+    int listSize = 5;
 
     sstream << std::setw(w.ws_col / 2 + header.size() / 2) << std::right << header << std::endl;
     for (int i = 0; i < w.ws_col; i++) {
@@ -20,9 +18,10 @@ string MainView::getScreenData() {
         sstream << std::endl;
     }
 
-    sstream << setw(w.ws_col / 3) << std::right << " " << "1. Manage people" << endl;
-    sstream << setw(w.ws_col / 3) << std::right << " " << "2. Manage dwellings" << endl;
-    sstream << setw(w.ws_col / 3) << std::right << " " << "3. Manage queue" << endl;
+    sstream << setw(w.ws_col / 3) << std::right << " " << "1. Show all dwellings" << endl;
+    sstream << setw(w.ws_col / 3) << std::right << " " << "2. Search dwellings" << endl;
+    sstream << setw(w.ws_col / 3) << std::right << " " << "3. Add new dwelling" << endl;
+    sstream << setw(w.ws_col / 3) << std::right << " " << "0. Previous page" << endl;
     sstream << setw(w.ws_col / 3) << std::right << " " << "q. Quit" << endl;
 
     for (int i = 0; i < w.ws_row / 2 - (listSize + 1); i++) {
@@ -31,9 +30,3 @@ string MainView::getScreenData() {
 
     return sstream.str();
 }
-
-/*
- * 1. Manage people
- * 2. Manage dwellings
- * 3. Manage queue
-*/

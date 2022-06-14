@@ -23,7 +23,7 @@ int runProgram() {
         string input;
         cin >> input;
         boost::trim(input);
-        if (input == "q" or input == "0") {
+        if (input == "q" or input == "Q") {
             break;
         }
 
