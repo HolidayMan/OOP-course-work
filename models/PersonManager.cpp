@@ -33,7 +33,7 @@ Person* PersonManager::get(int pk) const {
     return initPersonWithPk(stoi(row[0]), row[1], new Date(row[2]), row[3], row[4]);
 }
 
-vector<Person*> PersonManager::filter() const {
+vector<Person*> PersonManager::filter(Filter* condition) const {
     // TODO: implement
 }
 

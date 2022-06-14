@@ -112,6 +112,7 @@ int testPersonInQueueManager() {
 int filterTest() {
     PersonInQueueManager personInQueueManager;
 
+    /*
     personInQueueManager.filterTest(new ANDFilter(vector<std::shared_ptr<Filter>>{
         make_shared<BetweenFilter>("Age", 3, 5),
         make_shared<CompareFilter>("Price", "40", "< "),
@@ -121,6 +122,15 @@ int filterTest() {
         make_shared<NotLikeFilter>("House", "o%"),
         make_shared<NotInFilter>("City", "('Kharkiv', 'Lviv', 'Kyiv')")
     }));
+    */
+
+    vector<PersonInQueue*> personInQueue = personInQueueManager.filter(new ANDFilter(vector<std::shared_ptr<Filter>>{
+            make_shared<CompareFilter>("added_date", "'2022-05-01'", ">"),
+    }));
+
+    for (auto p : personInQueue) {
+        std::cout << p->pk << " " << p->dateAdded->toRepresentation() << " " << std::endl;
+    }
 
     return 0;
 }
