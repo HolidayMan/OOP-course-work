@@ -3,6 +3,7 @@
 #include "Exceptions.h"
 #include "models/DwellingManager.h"
 #include "models/PersonInQueueManager.h"
+#include "models/QueueDwelling.h"
 
 using namespace std;
 
@@ -135,10 +136,39 @@ int filterTest() {
     return 0;
 }
 
+int testDate() {
+    Date date(2020, 1, 29);
+    stringstream ss;
+
+    ss.clear();
+    Date date1(1, 9, 3);
+
+    date -= date1;
+    ss << date;
+    cout << ss.str();
+    return 0;
+}
+
+int testQueueDwelling() {
+    QueueDwelling queueDwelling;
+
+    for (const auto& person : queueDwelling) {
+        cout << person.dateAdded->toRepresentation() << endl;
+    }
+
+    return 0;
+}
+
 int runTests() {
+    /*
     testDBWorker();
     testDwellingManager();
     testPersonInQueueManager();
     filterTest();
+    testQueueDwelling();
+     */
+    testDate();
+
+
     return 0;
 }

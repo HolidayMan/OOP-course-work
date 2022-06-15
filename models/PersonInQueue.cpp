@@ -16,3 +16,16 @@ PersonInQueue *PersonInQueue::save() const {
 int PersonInQueue::remove() const {
     return manager->remove(this);
 }
+
+PersonInQueue& PersonInQueue::operator=(const PersonInQueue& personInQueue) {
+    person = personInQueue.person;
+    dateAdded = personInQueue.dateAdded;
+    manager = personInQueue.manager;
+    pk = personInQueue.pk;
+    dwelling = personInQueue.dwelling;
+
+    return *this;
+}
+
+
+PersonInQueue::PersonInQueue() = default;
