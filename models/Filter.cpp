@@ -68,3 +68,18 @@ NotInFilter::NotInFilter(std::string fieldName, std::string value)
 std::string NotInFilter::getRepresentation(std::string alias) {
     return add_alias(alias, fieldName) + " NOT IN " + value;
 }
+
+ORFilter::ORFilter(std::vector<std::shared_ptr<Filter>> filters) : filters(std::move(filters)) { }
+
+std::string ORFilter::getRepresentation(std::string alias) {
+    std::stringstream ss;
+
+    for (int i = 0; i < filters.size(); i++) {
+        ss << filters[i]->getRepresentation(alias);
+        if (i < filters.size() - 1) {
+            ss << " OR ";
+        }
+    }
+
+    return ss.str();
+}

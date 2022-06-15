@@ -10,8 +10,8 @@ View *DisplayDwellingsController::getView() {
     }
 
     if (page_size > dwellings.size()) {
-        page_size = (int)dwellings.size();
-        buildRange(1, page_size);
+        int _page_size = (int)dwellings.size();
+        buildRange(1, _page_size);
     }
 
     vector<Dwelling*> dwellingsSlice;

@@ -17,6 +17,14 @@ private:
     std::vector<std::shared_ptr<Filter>> filters;
 };
 
+class ORFilter : public Filter {
+public:
+    explicit ORFilter(std::vector<std::shared_ptr<Filter>>  filters);
+    std::string getRepresentation(std::string alias) override;
+private:
+    std::vector<std::shared_ptr<Filter>> filters;
+};
+
 class CompareFilter : public Filter {
 public:
     CompareFilter(std::string  fieldName, std::string  value, std::string compare_operator);

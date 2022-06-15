@@ -5,6 +5,7 @@
 #include "Dwelling.h"
 #include "DwellingManager.h"
 #include "../DBWorker.h"
+#include <sstream>
 
 using namespace std;
 
@@ -35,7 +36,18 @@ Dwelling* DwellingManager::get(int pk) const {
 }
 
 vector<Dwelling*> DwellingManager::filter(Filter* condition) const {
-    // TODO: implement
+    std::stringstream ss;
+    ss << "SELECT * FROM dwelling WHERE " << condition->getRepresentation("");
+
+    DBWorker* worker = DBWorker::getInstance();
+    auto result = worker->execute(ss.str());
+    vector<Dwelling*> dwellings;
+    for (auto row: result) {
+        int id = stoi(row[0]);
+        dwellings.push_back(initDwellingWithPk(id, row[1], stoi(row[2])));
+    }
+
+    return dwellings;
 }
 
 Dwelling* DwellingManager::save(const Dwelling* model) const {

@@ -21,7 +21,7 @@ int runProgram() {
         cout << view->getScreenData() << endl;
 
         string input;
-        cin >> input;
+        getline(cin, input);
         boost::trim(input);
         if (input == "q" or input == "Q") {
             break;
