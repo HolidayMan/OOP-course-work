@@ -4,6 +4,7 @@
 #include "PersonManager.h"
 #include "../DBWorker.h"
 #include <boost/format.hpp>
+#include <sstream>
 
 using namespace std;
 
@@ -34,7 +35,18 @@ Person* PersonManager::get(int pk) const {
 }
 
 vector<Person*> PersonManager::filter(Filter* condition) const {
-    // TODO: implement
+    std::stringstream ss;
+    ss << "SELECT * FROM person WHERE " << condition->getRepresentation("");
+
+    DBWorker* worker = DBWorker::getInstance();
+    auto result = worker->execute(ss.str());
+    vector<Person*> people;
+    for (auto row: result) {
+        int id = stoi(row[0]);
+        people.push_back(initPersonWithPk(id, row[1], new Date(row[2]), row[3], row[4]));
+    }
+
+    return people;
 }
 
 Person* PersonManager::save(const Person* model) const {

@@ -65,5 +65,4 @@ void DisplayDwellingsController::buildRange(int start, int end) {
     for (int i = start; i <= end; i++) {
         range.push_back(i);
     }
-
 }

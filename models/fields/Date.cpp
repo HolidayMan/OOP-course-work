@@ -14,7 +14,7 @@ Date::Date(const string& isoDate) {
     int y, m, d;
     sscanf(isoDate.c_str(), "%d-%d-%d", &y, &m, &d);
 
-    if (IsInvalidDate(year, month, day)){
+    if (IsInvalidDate(y, m, d)){
         throw Exception("Invalid date");
     }
 
@@ -90,7 +90,7 @@ stringstream &operator<<(stringstream &stream, const Date& date) {
 bool Date::IsInvalidDate(int y, int m, int d) {
     if ((y < 1) ||
         (m < 1 || m > 12) ||
-        (d < 1 || d > YearsOfMonth(year, month)))
+        (d < 1 || d > YearsOfMonth(y, m)))
     {
         return true;
     }
@@ -152,4 +152,15 @@ void Date::ToCorrect() {
 
 int Date::getYear() const {
     return year;
+}
+
+string Date::toString() const {
+    string y = to_string(year);
+    string m = to_string(month);
+    if (month < 10)
+        m = "0" + to_string(month);
+    string d = to_string(day);
+    if (day < 10)
+        d = "0" + to_string(day);
+    return d + '.' + m + '.' + y;
 }

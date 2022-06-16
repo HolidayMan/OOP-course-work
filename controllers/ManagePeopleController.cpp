@@ -1,6 +1,5 @@
 #include "ManagePeopleController.h"
 #include "DisplayPeopleController.h"
-#include "SearchPeopleController.h"
 #include "AddPersonController.h"
 #include "../views/MenuListView.h"
 
@@ -20,8 +19,6 @@ Controller *ManagePeopleController::getNextController(string input) {
         case 1:
             return new DisplayPeopleController(this);
         case 2:
-            return new SearchPeopleController(this);
-        case 3:
             return new AddPersonController(this);
         default:
             return this;

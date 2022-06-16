@@ -11,10 +11,7 @@ public:
     explicit Date(const string& isoDate);
 
     string toRepresentation() override;
-    bool IsInvalidDate(int year, int month, int day);
-    bool IsLeapYear(int year);
-    int YearsOfMonth(int year, int month);
-    void ToCorrect();
+    string toString() const;
 
     int getYear() const;
     int getMonth() const;
@@ -27,6 +24,10 @@ public:
     void operator +=(const Date& date);
     void operator -=(const Date& date);
 private:
+    bool IsInvalidDate(int year, int month, int day);
+    bool IsLeapYear(int year);
+    int YearsOfMonth(int year, int month);
+    void ToCorrect();
     int month;
     int year;
     int day;

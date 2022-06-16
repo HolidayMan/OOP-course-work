@@ -18,8 +18,8 @@ string ManageDwellingsView::getScreenData() {
         sstream << std::endl;
     }
 
-    sstream << setw(w.ws_col / 3) << std::right << " " << "1. Show all dwellings" << endl;
-    sstream << setw(w.ws_col / 3) << std::right << " " << "2. Search dwellings" << endl;
+    sstream << setw(w.ws_col / 3) << std::right << " " << "1. Show all people" << endl;
+    sstream << setw(w.ws_col / 3) << std::right << " " << "2. Search people" << endl;
     sstream << setw(w.ws_col / 3) << std::right << " " << "3. Add new dwelling" << endl;
     sstream << setw(w.ws_col / 3) << std::right << " " << "0. Previous page" << endl;
     sstream << setw(w.ws_col / 3) << std::right << " " << "q. Quit" << endl;

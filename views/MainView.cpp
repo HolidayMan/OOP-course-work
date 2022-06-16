@@ -31,9 +31,3 @@ string MainView::getScreenData() {
 
     return sstream.str();
 }
-
-/*
- * 1. Manage people
- * 2. Manage dwellings
- * 3. Manage queue
-*/
