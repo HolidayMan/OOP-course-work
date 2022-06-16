@@ -52,12 +52,7 @@ Controller *DisplayDwellingsController::getNextController(string input) {
     if (!isdigit(input[0]) || input.size() != 1) {
         return this;
     }
-    switch (std::stoi(input)) {
-        case 0:
-            return getPrevController();
-        default:
-            return this;
-    }
+    return this;
 }
 
 DisplayDwellingsController::DisplayDwellingsController(Controller *_prevController) : Controller(_prevController) {

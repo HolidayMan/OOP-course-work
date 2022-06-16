@@ -1,10 +1,10 @@
-#include "AddDwellingView.h"
+#include "PromptView.h"
 #include <sstream>
 #include <ios>
 #include <iomanip>
 #include "../utils.h"
 
-string AddDwellingView::getScreenData() {
+string PromptView::getScreenData() {
     std::stringstream sstream;
     auto w = getWinsize();
     sstream << std::setw(w.ws_col / 2 + header.size() / 2) << std::right << header << std::endl;

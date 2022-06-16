@@ -1,11 +1,15 @@
 #include "ManageDwellingsController.h"
-#include "../views/ManageDwellingsView.h"
 #include "DisplayDwellingsController.h"
 #include "SearchDwellingController.h"
 #include "AddDwellingController.h"
+#include "../views/MenuListView.h"
 
 View *ManageDwellingsController::getView() {
-    return new ManageDwellingsView("Manage Dwellings");
+    return new MenuListView("Manage dwellings", {
+        "1. Show all dwellings",
+        "2. Search dwellings",
+        "3. Add new dwelling"
+    });
 }
 
 Controller *ManageDwellingsController::getNextController(string input) {
@@ -19,8 +23,6 @@ Controller *ManageDwellingsController::getNextController(string input) {
             return new SearchDwellingController(this);
         case 3:
             return new AddDwellingController(this);
-        case 0:
-            return getPrevController();
         default:
             return this;
     }

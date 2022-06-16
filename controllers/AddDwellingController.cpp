@@ -1,16 +1,16 @@
 #include "AddDwellingController.h"
-#include "../views/AddDwellingView.h"
+#include "../views/PromptView.h"
 #include "../models/Dwelling.h"
 
 
 View *AddDwellingController::getView() {
     switch (step) {
         case enterAddress:
-            return new AddDwellingView("Enter address:");
+            return new PromptView("Enter address:");
         case enterRooms:
-            return new AddDwellingView("Enter number of rooms:");
+            return new PromptView("Enter number of rooms:");
         default:
-            return new AddDwellingView("Error");
+            return new PromptView("Error");
     }
 }
 

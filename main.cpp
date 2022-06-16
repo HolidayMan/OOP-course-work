@@ -26,6 +26,13 @@ int runProgram() {
         if (input == "q" or input == "Q") {
             break;
         }
+        if (input == "0") {
+            Controller* prevController = controller;
+            controller = controller->getPrevController();
+            delete prevController;
+            view = controller->getView();
+            continue;
+        }
 
         controller = controller->getNextController(input);
         view = controller->getView();
