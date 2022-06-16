@@ -5,6 +5,9 @@
 #include "ModelManager.h"
 #include "PersonInQueue.h"
 #include "Filter.h"
+#include "fields/Date.h"
+#include "Person.h"
+#include "Dwelling.h"
 
 using namespace std;
 
@@ -20,3 +23,4 @@ public:
     int remove(const PersonInQueue* model) const override;
 };
 
+PersonInQueue* initPersonInQueueWithPk(int pk, Date* _dateAdded, Person* _person, bool _isSatisfied, Dwelling* _dwelling);
