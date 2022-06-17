@@ -7,7 +7,7 @@
 View *ManagePeopleController::getView() {
     return new MenuListView("Manage people", {
         "1. Show and search through all people",
-        "2. Add new dwelling",
+        "2. Add new person",
     });
 }
 

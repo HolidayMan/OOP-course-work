@@ -4,3 +4,4 @@
 #include <string>
 
 winsize getWinsize();
+bool isNumber(const string& str);

@@ -18,15 +18,15 @@ public:
     int getDay() const;
 
     void setDate(int y, int m, int d);
+    static int getDaysOfMonth(int year, int month);
+    static bool IsLeapYear(int year);
 
     friend stringstream& operator<<(stringstream& stream, const Date& date);
 
     void operator +=(const Date& date);
     void operator -=(const Date& date);
 private:
-    bool IsInvalidDate(int year, int month, int day);
-    bool IsLeapYear(int year);
-    int YearsOfMonth(int year, int month);
+    static bool IsInvalidDate(int year, int month, int day);
     void ToCorrect();
     int month;
     int year;

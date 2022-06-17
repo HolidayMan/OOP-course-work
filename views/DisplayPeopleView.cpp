@@ -25,8 +25,8 @@ string DisplayPeopleView::getScreenData() {
     }
     sstream << endl << endl;
 
-    sstream << setw(7) << std::right << "N" << sep << setw(w.ws_col / 2) <<
-            "Name" << sep << setw(4) << "Birth date" << sep << "Sex" << sep << "Family" << sep << endl;
+    sstream << setw(7) << std::right << "N" << sep << setw(w.ws_col / 4) <<
+            "Name" << sep << setw(10) << "Birth date" << sep << setw(6) << "Sex" << sep << setw(w.ws_col / 4) << "Family" << sep << endl;
     for (int i = 0; i < w.ws_col; i++) {
         sstream << "-";
     }
@@ -40,9 +40,9 @@ string DisplayPeopleView::getScreenData() {
     for (int i = 0; i < listSize; i++) {
         auto* person = people[i];
         int num = range[i];
-        sstream << setw(7) << std::right << num << sep << setw(w.ws_col / 2) <<
-                person->name << sep << setw(4) << person->birthDate->toString() << sep <<
-                person->sex << sep << person->family << endl;
+        sstream << setw(7) << std::right << num << sep << setw(w.ws_col / 4) <<
+                person->name << sep << setw(10) << person->birthDate->toString() <<
+                sep << setw(6) << person->sex << sep << setw(w.ws_col / 4) << person->family << sep << endl;
     }
 
     for (int i = 0; i < w.ws_row / 3 - listSize; i++) {

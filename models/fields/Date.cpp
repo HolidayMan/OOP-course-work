@@ -90,14 +90,14 @@ stringstream &operator<<(stringstream &stream, const Date& date) {
 bool Date::IsInvalidDate(int y, int m, int d) {
     if ((y < 1) ||
         (m < 1 || m > 12) ||
-        (d < 1 || d > YearsOfMonth(y, m)))
+        (d < 1 || d > getDaysOfMonth(y, m)))
     {
         return true;
     }
     return false;
 }
 
-int Date::YearsOfMonth(int y, int m) {
+int Date::getDaysOfMonth(int y, int m) {
     int d;
     int days[12] = {31,28,31,30,31,30,31,31,30,31,30,31};
     d = days[m - 1];
@@ -119,11 +119,11 @@ bool Date::IsLeapYear(int y) {
 }
 
 void Date::ToCorrect() {
-    while (day > YearsOfMonth(year, month) || day <= 0)
+    while (day > getDaysOfMonth(year, month) || day <= 0)
     {
         if(day <= 0)
         {
-            day += YearsOfMonth(year,(month - 1));
+            day += getDaysOfMonth(year, (month - 1));
             if (month == 1)
             {
                 month = 12;
@@ -136,7 +136,7 @@ void Date::ToCorrect() {
         }
         else
         {
-            day -= YearsOfMonth(year, month);
+            day -= getDaysOfMonth(year, month);
             if (month == 12)
             {
                 year++;

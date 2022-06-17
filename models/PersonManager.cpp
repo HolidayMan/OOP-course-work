@@ -8,7 +8,6 @@
 
 using namespace std;
 
-// TODO: make family optional
 Person* initPersonWithPk(int pk, string _name, Date* _birthDate, string _sex, string _family) {
     auto* person = new Person(std::move(_name), _birthDate, std::move(_sex), std::move(_family));
     person->pk = pk;
@@ -50,12 +49,23 @@ vector<Person*> PersonManager::filter(Filter* condition) const {
 }
 
 Person* PersonManager::save(const Person* model) const {
-    string query = "INSERT INTO person (name, birth_date, sex, family) VALUES ('%s', '%s', '%s', '%s');";
-    query = (boost::format(query) % model->name % model->birthDate->toRepresentation() % model->sex % model->family).str();
+    string query;
+    if (model->family.empty()) {
+        query = "INSERT INTO person (name, birth_date, sex) VALUES ('%s', '%s', '%s');";
+        query = (boost::format(query) % model->name % model->birthDate->toRepresentation() % model->sex).str();
+    } else {
+        query = "INSERT INTO person (name, birth_date, sex, family) VALUES ('%s', '%s', '%s', '%s');";
+        query = (boost::format(query) % model->name % model->birthDate->toRepresentation() % model->sex % model->family).str();
+    }
     bool create = true;
     if (model->pk != 0) {
-        query = "UPDATE person SET name='%s', birth_date='%s', sex='%s', family='%s' WHERE id=%d;";
-        query = (boost::format(query) % model->name % model->birthDate->toRepresentation() % model->sex % model->family % model->pk).str();
+        if (model->family.empty()) {
+            query = "UPDATE person SET name='%s', birth_date='%s', sex='%s' WHERE id=%d;";
+            query = (boost::format(query) % model->name % model->birthDate->toRepresentation() % model->sex % model->pk).str();
+        } else {
+            query = "UPDATE person SET name='%s', birth_date='%s', sex='%s', family='%s' WHERE id=%d;";
+            query = (boost::format(query) % model->name % model->birthDate->toRepresentation() % model->sex % model->family % model->pk).str();
+        }
         create = false;
     }
     DBWorker* worker = DBWorker::getInstance();
