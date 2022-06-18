@@ -6,12 +6,16 @@
 class QueueDwelling {
 public:
     QueueDwelling();
+    explicit QueueDwelling(vector<PersonInQueue*> _queue);
+    ~QueueDwelling();
     PersonInQueue* begin();
     PersonInQueue* end();
-    size_t Size() const;
+    size_t size() const;
+    PersonInQueue* operator[](size_t index);
+    bool empty() const;
 private:
-    PersonInQueue* persons;
-    size_t size;
+    PersonInQueue* queue;
+    size_t _size;
 };
 
 
