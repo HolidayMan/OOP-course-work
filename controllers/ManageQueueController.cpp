@@ -49,6 +49,9 @@ View *ManageQueueController::getView() {
 }
 
 Controller *ManageQueueController::getNextController(string input) {
+    if (strcmp(input.c_str(), "") == 0) {
+        return this;
+    }
     switch (step) {
         case choosePerson:
             if (strcmp(input.c_str(), "p") == 0) { // previous page

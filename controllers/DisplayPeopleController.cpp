@@ -90,10 +90,10 @@ void DisplayPeopleController::search(const string& query) {
     string _query = "'%" + query + "%'";
 
     people = PersonManager().filter(new ORFilter(vector<std::shared_ptr<Filter>>{
-            std::make_shared<CompareFilter>("name", query, "LIKE"),
-            std::make_shared<CompareFilter>("birth_date", query, "LIKE"),
-            std::make_shared<CompareFilter>("sex", query, "LIKE"),
-            std::make_shared<CompareFilter>("family", query, "LIKE"),
+            std::make_shared<CompareFilter>("name", _query, "LIKE"),
+            std::make_shared<CompareFilter>("birth_date", _query, "LIKE"),
+            std::make_shared<CompareFilter>("sex", _query, "LIKE"),
+            std::make_shared<CompareFilter>("family", _query, "LIKE"),
     }));
 }
 
