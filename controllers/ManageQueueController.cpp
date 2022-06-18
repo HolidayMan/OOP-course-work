@@ -41,7 +41,9 @@ View *ManageQueueController::getView() {
         for (int i = range[0] - 1; i < range[range.size() - 1]; i++) {
             dwellingsSlice.push_back(data.dwellings[i]);
         }
-        return new ChooseDwellingView("Choose dwelling by entering its number:", dwellingsSlice, range);
+        return new ChooseDwellingView("Choose dwelling by entering its number: (" + std::to_string(range[0]) + "-" +
+                                            std::to_string(range[range.size() - 1]) + " of " + std::to_string(data.dwellings.size()) + ")",
+                                            dwellingsSlice, range);
     }
     return new PromptView("Error: Unknown step");
 }

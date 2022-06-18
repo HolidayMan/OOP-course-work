@@ -164,3 +164,9 @@ string Date::toString() const {
         d = "0" + to_string(day);
     return d + '.' + m + '.' + y;
 }
+
+Date *Date::now() {
+    time_t t = time(nullptr);
+    struct tm *tm = localtime(&t);
+    return new Date(tm->tm_year + 1900, tm->tm_mon + 1, tm->tm_mday);
+}

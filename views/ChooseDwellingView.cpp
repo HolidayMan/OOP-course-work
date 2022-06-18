@@ -41,6 +41,7 @@ string ChooseDwellingView::getScreenData() {
     }
 
 
+    sstream << setw(w.ws_col / 3) << std::right << " " << "Enter \"cancel\" to cancel"<< endl;
     sstream << setw(w.ws_col / 3) << std::right << " " << "q. Quit" << endl;
 
     sstream << endl;

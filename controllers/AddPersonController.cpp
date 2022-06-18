@@ -1,5 +1,6 @@
 #include "AddPersonController.h"
 #include "../models/fields/Date.h"
+#include "../models/PersonInQueue.h"
 #include "../models/Person.h"
 #include "../utils.h"
 #include "../views/PromptView.h"
@@ -82,6 +83,9 @@ Controller *AddPersonController::getNextController(string input) {
 }
 
 void AddPersonController::save() {
-    Person person(name, birthDate.get(), sex, family);
-    person.save();
+    auto person = new Person(name, birthDate.get(), sex, family);
+    person = person->save();
+
+    PersonInQueue personInQueue(Date::now(), person, false);
+    personInQueue.save();
 }

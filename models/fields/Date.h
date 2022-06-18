@@ -20,6 +20,7 @@ public:
     void setDate(int y, int m, int d);
     static int getDaysOfMonth(int year, int month);
     static bool IsLeapYear(int year);
+    static Date* now();
 
     friend stringstream& operator<<(stringstream& stream, const Date& date);
 

@@ -77,12 +77,19 @@ vector<PersonInQueue *> PersonInQueueManager::filter(Filter* condition) const {
 }
 
 PersonInQueue* PersonInQueueManager::save(const PersonInQueue* model) const {
-    string query = "INSERT INTO person_in_queue (person_id, added_date, is_satisfied, dwelling) VALUES ('%d', '%s', '%d', '%d');";
-    query = (boost::format(query) % model->person->pk % model->dateAdded->toRepresentation() % model->isSatisfied % model->dwelling->pk).str();
+    string dwellingId;
+    if (model->dwelling != nullptr) {
+        dwellingId = "'" + to_string(model->dwelling->pk) + "'";
+    } else {
+        dwellingId = "NULL";
+
+    }
+    string query = "INSERT INTO person_in_queue (person_id, added_date, is_satisfied, dwelling) VALUES ('%d', '%s', '%d', %s);";
+    query = (boost::format(query) % model->person->pk % model->dateAdded->toRepresentation() % model->isSatisfied % dwellingId).str();
     bool create = true;
     if (model->pk != 0) {
-        query = "UPDATE person_in_queue SET added_date='%s', is_satisfied='%d', dwelling='%d' WHERE person_id=%d;";
-        query = (boost::format(query) % model->dateAdded->toRepresentation() % model->isSatisfied % model->dwelling->pk % model->pk).str();
+        query = "UPDATE person_in_queue SET added_date='%s', is_satisfied='%d', dwelling=%s WHERE person_id=%d;";
+        query = (boost::format(query) % model->dateAdded->toRepresentation() % model->isSatisfied % dwellingId % model->pk).str();
         create = false;
     }
     DBWorker* worker = DBWorker::getInstance();

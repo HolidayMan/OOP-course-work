@@ -9,7 +9,7 @@ QueueDwelling::QueueDwelling() {
                    "INNER JOIN person p ON p.id = pq.person_id "
                    "LEFT JOIN dwelling d ON d.id = pq.dwelling "
                    "WHERE pq.is_satisfied = 0 "
-                   "ORDER BY pq.added_date; ";
+                   "ORDER BY pq.added_date, pq.person_id;";
 
     DBWorker* worker = DBWorker::getInstance();
     auto result = worker->execute(query);
