@@ -27,6 +27,9 @@ int runProgram() {
             break;
         }
         if (input == "0") {
+            if (controller->getPrevController() == nullptr) {
+                continue;
+            }
             Controller* prevController = controller;
             controller = controller->getPrevController();
             delete prevController;
